@@ -14,7 +14,7 @@ export const handleErrors = (error: any, message = 'An error ocurred') => {
 
 export const setupServer = (env?: string): Server => {
   return new Server({
-    environment: env ?? 'development',
+    environment: env ?? 'production',
 
     models: {
       entry: Model.extend({
@@ -42,7 +42,7 @@ export const setupServer = (env?: string): Server => {
     },
 
     routes(): void {
-      this.urlPrefix = 'https://diaries.app';
+      this.urlPrefix = 'https://eru-diaries.netlify.app';
 
       this.get('/diaries/entries/:id', diary.getEntries);
       this.get('/diaries/:id', diary.getDiaries);
